@@ -18,6 +18,11 @@ export const { handlers, auth, signIn, signOut } = NextAuth(() => {
     ],
 
     callbacks: {
+      async signIn({ profile }) {
+        console.log("Github profile", profile);
+        return profile?.login === "chaykov";
+      },
+
       jwt({ token, trigger, session }) {
         if (trigger === "update") token.name = session.user.name;
         return token;

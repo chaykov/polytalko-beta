@@ -8,7 +8,7 @@ export default function UserProfile({ user }: { user: IUser }) {
   return (
     <div>
       <h1 className="text-3xl">user-profile</h1>
-      <div>
+      <div className="flex gap-2">
         {user ? <p>Cześć, {user.name}</p> : <p>Ładowanie danych profilu...</p>}
       </div>
     </div>

@@ -3,6 +3,11 @@ export type IUser = {
   name: string;
   email: string;
   image?: string;
+  age?: number;
+  country?: string;
+  nativeLanguage?: string;
+  otherLanguages?: string;
+  bio?: string;
 };
 
 export type DBUser = {
@@ -10,6 +15,11 @@ export type DBUser = {
   name: string;
   email: string;
   image?: string;
+  age?: number;
+  country?: string;
+  nativeLanguage?: string;
+  otherLanguages?: string;
+  bio?: string;
 };
 
 export type NullableUser = IUser | null;

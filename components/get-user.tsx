@@ -5,17 +5,20 @@ import useSWR from "swr";
 
 type Props = {
   id: string;
+  initialData: IUser;
 };
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
-export default function GetUser({ id }: Props) {
+export default function GetUser({ id, initialData }: Props) {
   const { data, error, isLoading } = useSWR<{ user: IUser }>(
     `/api/users/${id}`,
     fetcher,
     {
+      fallbackData: { user: initialData },
+      dedupingInterval: 60 * 60 * 1000,
       revalidateOnFocus: false,
-      dedupingInterval: 60000,
+      revalidateIfStale: false,
     }
   );
 
